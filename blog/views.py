@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView
 
 from .models import Post
 
@@ -11,11 +11,6 @@ class BlogListView(ListView):
 class BlogDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
-
-
-class RegisterView(ListView):
-    model = Post
-    template_name = 'register.html'
 
 
 class LoginView(ListView):

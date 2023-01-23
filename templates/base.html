@@ -10,12 +10,22 @@
     <header>
       <ul>
         <li><a href="{% url 'home' %}">Мой блог</a></li>
-        <li><a href="{% url 'register' %}">Регистрация</a></li>
+        <li><a href="{% url 'signup' %}">Регистрация</a></li>
         <li><a href="{% url 'login' %}">Войти</a></li>
       </ul>
-
-
     </header>
+
+    {% if user.is_authenticated %}
+        <h3>Hi {{ user.username }}!</h3>
+        <p><a href="{% url 'logout' %}">Log out</a></p>
+        <hr>
+      {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Log In</a>
+        <hr>
+      {% endif %}
+
+
     <div>
       {% block content %}
       {% endblock content %}
