@@ -1,4 +1,6 @@
+import datetime
 from django.db import models
+
 
 
 class Post(models.Model):
@@ -8,6 +10,7 @@ class Post(models.Model):
         on_delete=models.CASCADE,  # Если удалиться пользователь, то и его статьи удаляться(каскадное отношение)
     )
     body = models.TextField()  # Большое текстовое поле
+    time_create = models.DateTimeField(default=datetime.datetime.now())
 
     def __str__(self):
         return self.title
