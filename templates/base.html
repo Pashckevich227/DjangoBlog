@@ -8,8 +8,11 @@
   </head>
   <body>
     <header>
+       <div>
+          <h1><a href="{% url 'home' %}">Мой блог</a></h1>
+        </div>
       <ul>
-        <li><a href="{% url 'home' %}">Мой блог</a></li>
+        <li><a href="{% url 'post_new' %}">Создать новый пост</a></li>
         <li><a href="{% url 'signup' %}">Регистрация</a></li>
         <li><a href="{% url 'login' %}">Войти</a></li>
       </ul>
