@@ -1,7 +1,8 @@
 <!-- templates/home.html -->
 {% extends 'base.html' %}
- 
+
 {% block content %}
+{% if user.is_authenticated %}
   {% for post in object_list %}
     <div class="post-entry">
       <h2>
@@ -11,4 +12,5 @@
       <p>{{ post.body }}</p>
     </div>
   {% endfor %}
+{% endif %}
 {% endblock content %}
