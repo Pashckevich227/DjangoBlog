@@ -12,6 +12,7 @@
   {% if user.id == 1 %}
   <a href='{% url 'post_edit' post.pk %}'>Редактировать</a>
   <a style="color: red;" href="{% url 'post_delete' post.pk %}">Удалить</a>
+  <p>{{ user.group.name }}</p>
   {% else %}
   <b>Редактировать и удалять посты могут только модераторы</b>
 

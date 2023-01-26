@@ -31,6 +31,7 @@ class BlogUpdateView(PermissionRequiredMixin, UpdateView):
     model = Post
     template_name = 'post_edit.html'
     fields = ['title', 'body']
+    success_url = reverse_lazy('home')
 
 
 class BlogDeleteView(DeleteView):
