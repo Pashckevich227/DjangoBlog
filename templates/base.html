@@ -1,8 +1,7 @@
-<!-- templates/base.html -->
 {% load static %}
 <html>
   <head>
-    <title>Django blog</title>
+    <title>Мой Блог</title>
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
   </head>
@@ -19,7 +18,7 @@
     </header>
 
     {% if user.is_authenticated %}
-        <h3>Hi {{ user.username }}!</h3>
+        <h3>Привет, {{ user.username }}!</h3>
         <p><a href="{% url 'logout' %}">Выйти</a></p>
         <hr>
       {% else %}

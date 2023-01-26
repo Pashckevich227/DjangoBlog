@@ -6,7 +6,14 @@
     <h2>{{ object.title }}</h2>
     <p>{{ object.body }}</p>
     <br>
-    <p style="text-align: right;">{{ object.time_create }}</p>
+    <p class="date">{{ object.author }}</p>
+    <p class="date">{{ object.time_create }}</p>
   </div>
-<a href='{% url 'post_edit' post.pk %}'>Редактировать</a>
+  {% if user.id == 1 %}
+  <a href='{% url 'post_edit' post.pk %}'>Редактировать</a>
+  <a style="color: red;" href="{% url 'post_delete' post.pk %}">Удалить</a>
+  {% else %}
+  <b>Редактировать и удалять посты могут только модераторы</b>
+
+  {% endif %}
 {% endblock content %}
