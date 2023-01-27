@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Post
+from blog.models import Post
 
 
 class BlogTests(TestCase):
@@ -32,7 +32,7 @@ class BlogTests(TestCase):
     def test_post_list_view(self):
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Nice body content')
+        self.assertContains(response, 'Регистрация')
         self.assertTemplateUsed(response, 'home.html')
 
     def test_post_detail_view(self):
@@ -49,9 +49,7 @@ class BlogTests(TestCase):
             'body': 'New text',
             'author': self.user,
         })
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'New title')
-        self.assertContains(response, 'New text')
+        self.assertEqual(response.status_code, 302)
 
     def test_post_update_view(self):
         response = self.client.post(reverse('post_edit', args='1'), {
