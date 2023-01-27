@@ -62,3 +62,10 @@ class BlogTests(TestCase):
         response = self.client.post(
             reverse('post_delete', args='1'))
         self.assertEqual(response.status_code, 302)
+
+    def test_login_user(self):
+        response = self.client.post(reverse('login'), {
+            'username': 'testuser',
+            'password': 'secret'
+        })
+        self.assertEqual(response.status_code, 302)
